@@ -86,7 +86,7 @@
 
 - [Mahmoud Hammad](https://github.com/mahmoudhammad309)
 - [Sara Dahman](https://github.com/SaraDahman)
-- [Sondos Aderawi](https://github.com/SundusAhmed)
+- [Sundus Al Derawi](https://github.com/SundusAhmed)
 - [Mohammed Ghassan](https://github.com/MohammedAbuSamra)
 
 ---
