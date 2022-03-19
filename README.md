@@ -1,6 +1,6 @@
 # Launch to Space 🚀
 
-### Check out our humble [website]()
+### Check out our humble [website](https://gsg-cf05.github.io/Team1-Sanajib-LaunchToSpace/)
 
 ---
 
