@@ -85,9 +85,9 @@
 ## This project is presented to you by:
 
 - [Mahmoud Hammad](https://github.com/mahmoudhammad309)
-- [Sara Dhaman](https://github.com/SaraDahman)
+- [Sara Dahman](https://github.com/SaraDahman)
 - [Sondos Aderawi](https://github.com/SundusAhmed)
-- [Mohammed AbuSamra](https://github.com/MohammedAbuSamra)
+- [Mohammed Ghassan](https://github.com/MohammedAbuSamra)
 
 ---
 
