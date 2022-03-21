@@ -1,0 +1,212 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  body {
+    background-image: url(/images/background.jpg);
+  }
+  
+  @font-face {
+    font-family: 'Space Quest';
+    src: url('/font/SpaceQuest-Xj4o.ttf');
+  }
+  
+  /* out container */
+  .container {
+    width: 100%;
+  }
+/* start navbar*/
+
+  
+  /* header */
+  
+  .header {
+    background-color: #385768;
+    box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 10%);
+    position: fixed;
+    width: 90%;
+    z-index: 3;
+    margin-top: 2rem;
+    margin-left: 1.4rem;
+    border-radius: 2rem;
+    font-family: 'Space Quest';
+  }
+  
+  a {
+    color: white;
+  }
+  
+  nav {
+    border-radius: 2rem;
+    background: #385768;
+    width: 100%;
+    display: flexbox;
+    justify-content: space-between;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #385768;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Space Quest';
+    width: 40%;
+    margin: 0 auto;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    color: #13c0c4;
+    text-decoration: none;
+    border-bottom: 4px solid #13c0c4;
+    padding-bottom: 0.6rem;
+  }
+  
+  .header li a.active {
+    color: #13c0c4;
+    border-bottom: 4px solid #13c0c4;
+    padding-bottom: 0.6rem;
+  }
+  
+  .header .logo {
+    display: inline-block;
+    /* float: left; */
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    border-radius: 2rem;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #fff;
+    display: block;
+    height: 3px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 22px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  @media (min-width: 48em) {
+    .header {
+      margin-left: 2rem;
+    }
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+  
+  /* =================================================== */
+  
+  /* content in the page */
+  .content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  @media (min-width: 48em) {
+    .content {
+      max-width: 444px;
+      font-size: 1.5rem;
+      align-items: flex-start;
+      text-align: start;
+      margin-top: 7rem;
+    }
+  
+    .header li a {
+      width: 100%;
+    }
+    .header {
+      margin-left: 4rem;
+    }
+  }
+/* End navbar*/
