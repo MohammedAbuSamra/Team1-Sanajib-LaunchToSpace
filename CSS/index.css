@@ -2,15 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 body {
   background-image: url(/images/background.jpg);
 }
 
 @font-face {
-  font-family: 'Space Quest';
-  src: url('/font/SpaceQuest-Xj4o.ttf');
+  font-family: "Space Quest";
+  src: url("/font/SpaceQuest-Xj4o.ttf");
 }
 
 /* out container */
@@ -29,7 +29,7 @@ body {
   margin-top: 2rem;
   margin-left: 1.4rem;
   border-radius: 2rem;
-  font-family: 'Space Quest';
+  font-family: "Space Quest";
 }
 
 a {
@@ -40,8 +40,6 @@ nav {
   border-radius: 2rem;
   background: #385768;
   width: 100%;
-  display: flexbox;
-  justify-content: space-between;
 }
 
 .header ul {
@@ -57,7 +55,7 @@ nav {
   padding: 20px 20px;
   text-decoration: none;
   text-align: center;
-  font-family: 'Space Quest';
+  font-family: "Space Quest";
   width: 40%;
   margin: 0 auto;
 }
@@ -77,8 +75,8 @@ nav {
 }
 
 .header .logo {
-  display: inline-block;
-  /* float: left; */
+  display: block;
+  float: left;
   padding: 10px 20px;
   text-decoration: none;
 }
@@ -114,7 +112,7 @@ nav {
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
   background: #fff;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   position: absolute;
@@ -179,6 +177,17 @@ nav {
 
 /* =================================================== */
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.earth-img {
+  width: 444px;
+  margin-top: 3rem;
+}
+
 /* content in the page */
 .content {
   width: 80%;
@@ -190,7 +199,61 @@ nav {
   color: white;
 }
 
+/* btn */
+.home-page-btn {
+  width: 16rem;
+  height: 2.6rem;
+  color: white;
+  background-color: #13c0c4;
+  border: none;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  font-family: "Space Quest";
+}
+
+/* launch title */
+.launch-title {
+  letter-spacing: 2px;
+  font-family: "Space Quest";
+}
+
+/* icons */
+.icons {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+  color: #13c0c4;
+}
+/* mutual class for space between content */
+.margin {
+  margin-top: 1.25rem;
+}
+
+/* line under the title */
+.line {
+  width: 85%;
+  background-image: linear-gradient(to right, #13c0c4, white);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
+  padding: 3px;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+/* rocket icon */
+.fa-rocket {
+  font-size: 1em;
+  color: #13c0c4;
+}
+
 @media (min-width: 48em) {
+  .main {
+    flex-direction: row-reverse;
+  }
+  .earth-img {
+    width: 530px;
+  }
   .content {
     max-width: 444px;
     font-size: 1.5rem;
@@ -198,7 +261,11 @@ nav {
     text-align: start;
     margin-top: 7rem;
   }
-
+  .home-page-btn {
+    font-size: 1em;
+    width: 17rem;
+    height: 3.6rem;
+  }
   .header li a {
     width: 100%;
   }
