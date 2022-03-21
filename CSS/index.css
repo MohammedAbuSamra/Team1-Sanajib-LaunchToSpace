@@ -5,12 +5,12 @@
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background-image: url(/images/background.jpg);
+  background-image: url(../images/background.jpg);
 }
 
 @font-face {
   font-family: "Space Quest";
-  src: url("/font/SpaceQuest-Xj4o.ttf");
+  src: url("./font/SpaceQuest-Xj4o.ttf");
 }
 
 /* out container */
@@ -181,7 +181,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .earth-img {
   width: 444px;
