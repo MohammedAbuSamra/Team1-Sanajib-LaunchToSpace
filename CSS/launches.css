@@ -33,7 +33,7 @@ body {
   position: fixed;
   top: 0;
   width: 90%;
-  z-index: 3;
+  z-index: 10;
   margin-top: 2rem;
   margin-left: 1.4rem;
   border-radius: 2rem;
@@ -432,3 +432,280 @@ nav {
   }
   /* ---- end of latest launch section ---- */
 }
+
+  /* ---- Start all launches section ---- */
+  .all-launches-container {
+    background-color: #1C1C1C;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 5rem; 
+    height: 1000px;
+    overflow-y: scroll;
+  }
+  .all-launches-container::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  .all-launches-container::-webkit-scrollbar-track {
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(19, 192, 196, 0.6);
+  }
+  
+  .all-launches-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(19, 192, 196,0.1);
+  }
+  .all-launches-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(19, 192, 196,0.5);
+  }
+  
+  .all-trips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .all-favorite-btns button {
+    padding: 0.2rem 1rem ;
+  }
+  .all-years {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .all-years-btn,
+  .favorite-btn  {
+  flex-grow: 1;
+  background-color: #13C0C4;
+  border: 1px solid #13C0C4;
+  }
+  
+  .all-years {
+    flex-grow: 1;
+    background-color: #494848;
+    padding: 0.5rem 0;
+    border-radius: 8rem;
+  }
+  
+  .all-years > * {
+    cursor: pointer;
+  }
+  
+  .all-years :not(:first-child,:last-child) { 
+    border-radius: 8rem;
+    padding: 0.2rem 1rem ;
+    outline: none;
+    border: 1px solid #494848;
+    background-color: rgba(255, 255, 255, 0.8);
+   } 
+  
+   .all-years button:first-child,
+   .all-years button:last-child
+   { 
+    width: 2rem;
+    padding: 0.5rem;
+    margin: 0 5px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: #13C0C4;
+    border: 1px solid #13C0C4;
+   } 
+  .main-btn {
+    background-color: #13C0C4;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    padding: 0 0.1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin: 0.5rem 1rem;
+  }
+  
+  .trips-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(65, 64, 64, 0.3);
+    border: 2px solid #333232;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .trip-img {
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(250, 245, 245,0.3);
+    margin: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .trip-img img {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0;
+  }
+  
+  .trip-title {
+    color: #13C0C4;
+    font-size: 1.5rem;
+  }
+  
+  .trip-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 3 1 300px;
+    color: #fff;
+    margin: 1rem;
+    position: relative;
+  }
+  
+  .heart {
+    position: absolute;
+    top :0;
+    right: 0;
+    color: #13C0C4;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .trip-date {
+    display: flex;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: -3rem 1rem 0 0;
+  }
+  
+  .trip-description {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: -3rem 1rem 0 0;
+  }
+  .trip-date i{
+    margin-right: 0.5rem;
+  }
+  .trip-btns {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 1rem;
+    display: flex;
+  }
+  .trip-btns .youtube-btn{
+  background-color: #CE2424;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+  outline: none;
+  border: 1px solid #CE2424;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 1rem;
+  }
+  .trip-btns .youtube-btn:hover {
+    background-color: #fff;
+    color: #CE2424;
+  }
+  
+  .trip-btns .more{
+    background-color: Transparent;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    outline: none;
+    border: 1px solid #13C0C4;
+    cursor: pointer;
+  }
+  .trip-btns .more:hover {
+    background-color: #13C0C4;
+    border: 1px solid #fff;
+  }
+  
+  .trip-btns .more i {
+    font-size: 0.5rem;
+  }
+  .hide {
+    display: none;
+  }
+  
+  .line {
+    height: 2px;
+    width: 90%;
+    margin-top: 20rem;
+    background-color: #494848;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border-radius: 8rem;
+  }
+  
+  /* !! media query */
+  
+  @media screen and (min-width: 768px) {
+  
+    .trips-card {
+      flex-direction: row;
+    }
+  
+  
+    .hide {
+      display: block;
+    }
+  
+    .all-years :not(:first-child,:last-child) {
+      margin: 0 -1.5rem;
+    }
+  
+    .trip-title {
+      font-size: 2rem;
+    }
+    .all-favorite-btns {
+      display: none;
+    }
+  
+    .all-trips {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .all-years {
+      flex-grow: 10;
+    }
+  
+    .main-btn {
+      flex-grow: 1 1 5px;
+      margin: 0.2;
+      padding: 0.3rem 0.4rem;
+    }
+    .all-years :not(:first-child,:last-child){
+      width: 4rem;
+      margin: 0.2rem;
+      padding:0 1rem;
+    }
+   
+  }
+  @media only screen and (max-width: 1023px) and (min-width: 769px)  {
+    .all-years :not(:first-child,:last-child) { 
+      width: 6rem;
+     } 
+     .trip-date {
+      margin-bottom: -2rem;
+    }
+    
+    .trip-description {
+      margin: -1.8rem 1rem 0 0;
+    }
+  
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .all-years :not(:first-child,:last-child) { 
+      width: 6rem;
+     } 
+     .trip-date {
+      margin-bottom: -2rem;
+    }
+    
+    .trip-description {
+      margin: -1.8rem 1rem 0 0;
+    }
+  }
