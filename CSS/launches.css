@@ -1,212 +1,341 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  }
-  body {
-    background-image: url(../images/background.jpg);
-  }
-  
-  @font-face {
-    font-family: 'Space Quest';
-    src: url('./font/SpaceQuest-Xj4o.ttf');
-  }
-  
-  /* out container */
-  .container {
-    width: 100%;
-  }
-/* start navbar*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background-image: url(../images/background.jpg);
+}
 
-  
-  /* header */
-  
+@font-face {
+  font-family: 'Space Quest';
+  src: url('../CSS/font/SpaceQuest-Xj4o.ttf');
+}
+
+/* out container */
+.container {
+  width: 100%;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 7rem;
+  border: solid;
+}
+
+/* ------------ start of header ----------- */
+
+.header {
+  background-color: #385768;
+  box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 10%);
+  position: fixed;
+  top: 0;
+  width: 90%;
+  z-index: 3;
+  margin-top: 2rem;
+  margin-left: 1.4rem;
+  border-radius: 2rem;
+  font-family: 'Space Quest';
+}
+
+a {
+  color: white;
+}
+
+nav {
+  border-radius: 2rem;
+  background: #385768;
+  width: 100%;
+}
+
+.header ul {
+  list-style: none;
+  overflow: hidden;
+  background-color: #385768;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Space Quest';
+  width: 40%;
+  margin: 0 auto;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  color: #13c0c4;
+  text-decoration: none;
+  border-bottom: 4px solid #13c0c4;
+  padding-bottom: 0.6rem;
+}
+
+.header li a.active {
+  color: #13c0c4;
+  border-bottom: 4px solid #13c0c4;
+  padding-bottom: 0.6rem;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  border-radius: 2rem;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #fff;
+  display: block;
+  height: 3px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 22px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #fff;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+@media (min-width: 48em) {
   .header {
-    background-color: #385768;
-    box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 10%);
-    position: fixed;
-    width: 90%;
-    z-index: 3;
-    margin-top: 2rem;
-    margin-left: 1.4rem;
-    border-radius: 2rem;
-    font-family: 'Space Quest';
+    margin-left: 2rem;
   }
-  
-  a {
-    color: white;
+  .header li {
+    float: left;
   }
-  
-  nav {
-    border-radius: 2rem;
-    background: #385768;
-    width: 100%;
-    display: flexbox;
-    justify-content: space-between;
-  }
-  
-  .header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-    background-color: #385768;
-  }
-  
   .header li a {
-    display: block;
-    padding: 20px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-family: 'Space Quest';
-    width: 40%;
-    margin: 0 auto;
+    padding: 20px 30px;
   }
-  
-  .header li a:hover,
-  .header .menu-btn:hover {
-    color: #13c0c4;
-    text-decoration: none;
-    border-bottom: 4px solid #13c0c4;
-    padding-bottom: 0.6rem;
-  }
-  
-  .header li a.active {
-    color: #13c0c4;
-    border-bottom: 4px solid #13c0c4;
-    padding-bottom: 0.6rem;
-  }
-  
-  .header .logo {
-    display: inline-block;
-    /* float: left; */
-    padding: 10px 20px;
-    text-decoration: none;
-  }
-  
-  /* menu */
-  
   .header .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-    border-radius: 2rem;
-  }
-  
-  /* menu icon */
-  
-  .header .menu-icon {
-    cursor: pointer;
+    clear: none;
     float: right;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
+    max-height: none;
   }
-  
-  .header .menu-icon .navicon {
-    background: #fff;
-    display: block;
-    height: 3px;
-    position: relative;
-    transition: background 0.2s ease-out;
-    width: 22px;
-  }
-  
-  .header .menu-icon .navicon:before,
-  .header .menu-icon .navicon:after {
-    background: #fff;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
-  }
-  
-  .header .menu-icon .navicon:before {
-    top: 5px;
-  }
-  
-  .header .menu-icon .navicon:after {
-    top: -5px;
-  }
-  
-  /* menu btn */
-  
-  .header .menu-btn {
+  .header .menu-icon {
     display: none;
   }
-  
-  .header .menu-btn:checked ~ .menu {
-    max-height: 240px;
+}
+
+/* =================================================== */
+
+@media (min-width: 48em) {
+  .main {
+    flex-direction: row-reverse;
   }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
+  .earth-img {
+    width: 530px;
   }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
+
+  .home-page-btn {
+    font-size: 1em;
+    width: 17rem;
+    height: 3.6rem;
   }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
+  .header li a {
+    width: 100%;
   }
-  
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
+  .header {
+    margin-left: 4rem;
   }
-  
-  @media (min-width: 48em) {
-    .header {
-      margin-left: 2rem;
-    }
-    .header li {
-      float: left;
-    }
-    .header li a {
-      padding: 20px 30px;
-    }
-    .header .menu {
-      clear: none;
-      float: right;
-      max-height: none;
-    }
-    .header .menu-icon {
-      display: none;
-    }
+}
+
+/* ------------ end of header ----------- */
+
+/* ---- Beginning of latest launch section ---- */
+.latest-launch {
+  color: white;
+  margin-top: 2rem;
+}
+
+.latest-launch .latest-launch-img img {
+  width: 100%;
+}
+
+.latest-launch .latest-launch-img {
+  background-color: #111111;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.latest-launch .latest-launch-content h1 {
+  font-size: 2rem;
+  color: #13c0c4;
+  margin-top: 1rem;
+}
+
+.latest-launch .latest-launch-content p {
+  font-size: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem 0 0;
+}
+
+.latest-launch .latest-launch-video {
+  background-color: #ce2424;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 0.7rem;
+  margin: 0 1rem 0 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.latest-launch .latest-launch-article {
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #13c0c4;
+  border-radius: 8px;
+  text-decoration: none;
+}
+/* ---- end of latest launch section ---- */
+/* ============ media queries for the first two sections in the launches page ============== */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 10px;
   }
-  
-  /* =================================================== */
-  
-  /* content in the page */
-  .content {
-    width: 80%;
+  /* ---- Beginning of latest launch section ---- */
+  .latest-launch {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
   }
-  
-  @media (min-width: 48em) {
-    .content {
-      max-width: 444px;
-      font-size: 1.5rem;
-      align-items: flex-start;
-      text-align: start;
-      margin-top: 7rem;
-    }
-  
-    .header li a {
-      width: 100%;
-    }
-    .header {
-      margin-left: 4rem;
-    }
+  .latest-launch .latest-launch-content {
+    width: 60%;
   }
-/* End navbar*/
+
+  .latest-launch .latest-launch-content h1 {
+    font-size: 3rem;
+  }
+
+  .latest-launch .latest-launch-content p {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    padding: 0 7rem 0 0;
+  }
+  .latest-launch .latest-launch-video {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 0 0;
+    font-size: 1.2rem;
+  }
+  .latest-launch .latest-launch-article {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+  .latest-launch .latest-launch-img img {
+    width: 100%;
+  }
+  .latest-launch .latest-launch-img {
+    border-radius: 16px;
+    width: 40%;
+  }
+  /* ---- end of latest launch section ---- */
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 17px;
+  }
+  /* ---- Beginning of latest launch section ---- */
+  .latest-launch .latest-launch-img img {
+    width: 100%;
+  }
+  .latest-launch .latest-launch-img {
+    border-radius: 16px;
+    width: 40%;
+  }
+  .latest-launch .latest-launch-content {
+    width: 60%;
+  }
+  .latest-launch .latest-launch-content h1 {
+    font-size: 3rem;
+  }
+
+  .latest-launch .latest-launch-content p {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    padding: 0 7rem 0 0;
+  }
+  .latest-launch .latest-launch-video {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 0 0;
+    font-size: 1rem;
+  }
+  .latest-launch .latest-launch-article {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  /* ---- end of latest launch section ---- */
+}
