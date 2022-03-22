@@ -254,6 +254,64 @@ nav {
   text-decoration: none;
 }
 /* ---- end of latest launch section ---- */
+/* ---- start of next launch section ---- */
+.next-launch {
+  color: white;
+  width: 100%;
+  height: 12rem;
+  border: solid white 2px;
+  margin-top: 3rem;
+  border-radius: 15px;
+}
+
+.next-launch img {
+  width: 50%;
+  height: 11.3rem;
+  left: 24%;
+  position: absolute;
+  z-index: -5;
+}
+
+.next-launch .next-launch-content {
+  background-color: rgba(17, 17, 17, 0.7);
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.next-launch .next-launch-content h1 {
+  font-size: 2rem;
+}
+.next-launch .next-launch-content h2 {
+  color: #13c0c4;
+  font-size: 1.5rem;
+}
+
+.next-launch .next-launch-content .timer {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
+
+.next-launch-content .timer .time {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #13c0c4;
+}
+
+.next-launch-content .timer .time label {
+  margin-left: 0.7rem;
+  margin-right: 1.5rem;
+}
+
+.next-launch-content .timer .time label:nth-child(4) {
+  margin-left: 0.9rem;
+  margin-right: 1rem;
+}
+/* ---- end of next launch section ---- */
 /* ============ media queries for the first two sections in the launches page ============== */
 @media screen and (min-width: 768px) {
   html {
@@ -296,12 +354,47 @@ nav {
     width: 40%;
   }
   /* ---- end of latest launch section ---- */
+  /* ---- start of next launch section ---- */
+  .next-launch {
+    height: 14rem;
+  }
+  .next-launch img {
+    width: 27%;
+    height: 13rem;
+    left: 36%;
+  }
+  .next-launch .next-launch-content {
+    padding: 2rem;
+  }
+  .next-launch .next-launch-content h1 {
+    font-size: 3rem;
+  }
+  .next-launch .next-launch-content h2 {
+    font-size: 2rem;
+  }
+
+  .next-launch .next-launch-content p {
+    font-size: 3rem;
+  }
+  /* ---- end of next launch section ---- */
 }
 
 @media screen and (min-width: 1024px) {
   html {
     font-size: 13px;
   }
+  /* ---- start of next launch section ---- */
+  .next-launch .next-launch-content h1 {
+    font-size: 3rem;
+  }
+  .next-launch .next-launch-content h2 {
+    font-size: 2rem;
+  }
+
+  .next-launch .next-launch-content p {
+    font-size: 3rem;
+  }
+  /* ---- end of next launch section ---- */
 }
 
 @media screen and (min-width: 1440px) {
