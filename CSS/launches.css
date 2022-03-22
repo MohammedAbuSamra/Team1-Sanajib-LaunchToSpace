@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
 }
 body {
   background-image: url(../images/background.jpg);
@@ -38,6 +37,7 @@ body {
   margin-left: 1.4rem;
   border-radius: 2rem;
   font-family: 'Space Quest';
+  z-index: 10;
 }
 
 a {
@@ -364,7 +364,7 @@ nav {
     left: 36%;
   }
   .next-launch .next-launch-content {
-    padding: 2rem;
+    padding: 1rem;
   }
   .next-launch .next-launch-content h1 {
     font-size: 3rem;
@@ -373,8 +373,23 @@ nav {
     font-size: 2rem;
   }
 
-  .next-launch .next-launch-content p {
+  .next-launch .next-launch-content .timer {
     font-size: 3rem;
+  }
+  .next-launch-content .timer .time {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+    color: #13c0c4;
+  }
+
+  .next-launch-content .timer .time label {
+    margin-left: 0.7rem;
+    margin-right: 1.5rem;
+  }
+
+  .next-launch-content .timer .time label:nth-child(4) {
+    margin-left: 0.9rem;
+    margin-right: 1rem;
   }
   /* ---- end of next launch section ---- */
 }
@@ -384,6 +399,12 @@ nav {
     font-size: 13px;
   }
   /* ---- start of next launch section ---- */
+  .next-launch {
+    height: 16rem;
+  }
+  .next-launch img {
+    height: 15.5rem;
+  }
   .next-launch .next-launch-content h1 {
     font-size: 3rem;
   }
@@ -391,7 +412,7 @@ nav {
     font-size: 2rem;
   }
 
-  .next-launch .next-launch-content p {
+  .next-launch .next-launch-content .timer {
     font-size: 3rem;
   }
   /* ---- end of next launch section ---- */
@@ -431,4 +452,12 @@ nav {
     font-size: 1rem;
   }
   /* ---- end of latest launch section ---- */
+  /*----- start of next launch section ----- */
+  .next-launch {
+    height: 17rem;
+  }
+  .next-launch img {
+    height: 16.5rem;
+  }
+  /* ---- end of next launch section ----- */
 }
