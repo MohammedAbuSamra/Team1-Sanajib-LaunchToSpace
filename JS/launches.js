@@ -58,8 +58,51 @@ fetch('https://api.spacexdata.com/v4/launches/latest')
     contentDiv.appendChild(articleBtn);
   })
   .catch((err) => console.log(err));
-
-// let days = document.querySelector('.days');
-// let hours = document.querySelector('.hours');
-// let minutes = document.querySelector('.minutes');
-// let seconds = document.querySelector('.seconds');
+///===========================================================
+/// =============== next launch functionality==================
+// get the necessary element
+let days = document.querySelector('.days');
+let hours = document.querySelector('.hours');
+let minutes = document.querySelector('.minutes');
+let seconds = document.querySelector('.seconds');
+//--- get the parent elements
+let nextLaunch = document.querySelector('.next-launch');
+let nextLaunchContent = document.querySelector('.next-launch-content');
+fetch('https://api.spacexdata.com/v4/launches/next')
+  .then((res) => res.json())
+  .then((data) => {
+    // save the needed data in variables
+    let imgSrc = data.links.patch.large;
+    let flightName = data.name;
+    let flightDate = data.date_utc;
+    // create an image and prepend it to its parent
+    let img = document.createElement('img');
+    img.src = imgSrc;
+    img.setAttribute('referrerpolicy', 'no-referrer');
+    nextLaunch.prepend(img);
+    // add the trip title
+    nextLaunchContent.children[1].textContent = flightName;
+    // add the timer functionality
+    // save the date in the local storage for later use
+    localStorage.setItem('nextDate', flightDate);
+  });
+function countDown() {
+  // get the upcoming date from local storage
+  let nextDate = localStorage.getItem('nextDate');
+  let neXtLaunch = new Date(nextDate);
+  let currentTime = new Date();
+  // calculate the difference between the upcoming launch and current date
+  let dif = neXtLaunch - currentTime;
+  // calculate the days, hours, minutes, seconds
+  let d = Math.floor(dif / 1000 / 60 / 60 / 24);
+  let h = Math.floor(dif / 1000 / 60 / 60) % 24;
+  let m = Math.floor(dif / 1000 / 60) % 60;
+  let s = Math.floor(dif / 1000) % 60;
+  // change the content of the static counter
+  days.textContent = d < 10 ? '0' + d : d;
+  hours.textContent = h < 10 ? '0' + h : h;
+  minutes.textContent = m < 10 ? '0' + m : m;
+  seconds.textContent = s < 10 ? '0' + s : s;
+}
+// invoke the function every second to create the timer
+setInterval(countDown, 1000);
