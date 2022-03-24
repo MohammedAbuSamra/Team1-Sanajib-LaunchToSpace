@@ -64,25 +64,63 @@ fetch('https://api.spacexdata.com/v4/launches/latest')
 // let minutes = document.querySelector('.minutes');
 // let seconds = document.querySelector('.seconds');
 
+//The all launches section functionality
 fetch('https://api.spacexdata.com/v4/launches/')
 .then(res => res.json())
 .then(data => {
   const allLaunches = document.querySelector('.all-launches-container');
-
-
-   // data.forEach {
-   //   cardContainer.appendChild(cardsRender(data[i]))
-   // }
-  data.forEach((item) => {
+  const yearsRange = document.querySelector('.years-range')
+  data.forEach((item, index) => {
+    // add cards
       allLaunches.appendChild(cardsRender(item));
-      // cardsContainer.appendChild(card);
+      
+    // add buttons
+      let currentYear = item.date_local.slice(0, 4);
+
+      
+      let nextYear = data[index + 1];
+      if(nextYear) {
+        if (currentYear !== nextYear.date_local.slice(0, 4)) {
+          yearsRange.appendChild(btnRender(item));
+        }
+      }
+      
+    
     });
+       // display the wanted year
+       const yearsBtn = document.querySelectorAll('.years-range button');
+       yearsBtn.forEach(elm => {
+        elm.addEventListener('click', (item) => {
+          const wantedYear = item.target.textContent;
+          const allLaunches = document.querySelector('.all-launches-container');
+          allLaunches.textContent = '';
+          data.forEach((e) => {
+            if(e.date_local.includes(wantedYear)) {
+              allLaunches.appendChild(cardsRender(e));
+            }
+          })
+        })
+       });
+
+      //  Return all launches
+      const allBtn = document.querySelector('.all-btn');
+      allBtn.addEventListener('click', () => {
+        allLaunches.textContent = '';
+        data.forEach((item) => {
+          allLaunches.appendChild(cardsRender(item));
+        })
+      })
 })
 .catch(err => console.log('error', err));
 
-
+// buttons function
+function btnRender (incomingData) {
+  const btn = document.createElement('button');
+  btn.textContent = incomingData.date_local.slice(0, 4);
+  return btn;
+};
+// cards function
 function cardsRender(incomingData) {
-
   const card = document.createElement("div");
   card.setAttribute('class', 'trips-card'); 
   // ** Start creation of an images div
@@ -176,4 +214,59 @@ function cardsRender(incomingData) {
   
   // !! End creation of an trip information div
   return card;
-}
+};
+
+// functionality for scroll bar on mouse event
+
+const slider = document.querySelector('.slider');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = x - startX;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// functionality for scroll bar on button click
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+leftArrow.addEventListener('click', (e) => {
+  console.log('clicked')
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+})
+
+rightArrow.addEventListener('click', (e) => {
+  console.log('clicked')
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+})
