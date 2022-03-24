@@ -787,7 +787,7 @@ nav {
   align-items: center;
   margin: 0 auto;
   width: 40%;
-  font-size: 1.9rem;
+  font-size: 1.4rem;
 }
 .footer-image2 {
   width: 8.5rem;
@@ -813,6 +813,6 @@ nav {
   }
   .footer-list {
     width: 30%;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
