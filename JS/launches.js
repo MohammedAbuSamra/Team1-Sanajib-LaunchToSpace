@@ -106,3 +106,215 @@ function countDown() {
 }
 // invoke the function every second to create the timer
 setInterval(countDown, 1000);
+
+// let days = document.querySelector('.days');
+// let hours = document.querySelector('.hours');
+// let minutes = document.querySelector('.minutes');
+// let seconds = document.querySelector('.seconds');
+
+//The all launches section functionality
+fetch('https://api.spacexdata.com/v4/launches/')
+.then(res => res.json())
+.then(data => {
+  const allLaunches = document.querySelector('.all-launches-container');
+  const yearsRange = document.querySelector('.years-range')
+  data.forEach((item, index) => {
+    // add cards
+      allLaunches.appendChild(cardsRender(item));
+      
+    // add buttons
+      let currentYear = item.date_local.slice(0, 4);
+
+      
+      let nextYear = data[index + 1];
+      if(nextYear) {
+        if (currentYear !== nextYear.date_local.slice(0, 4)) {
+          yearsRange.appendChild(btnRender(item));
+        }
+      }
+      
+    
+    });
+       // display the wanted year
+       const yearsBtn = document.querySelectorAll('.years-range button');
+       yearsBtn.forEach(elm => {
+        elm.addEventListener('click', (item) => {
+          const wantedYear = item.target.textContent;
+          const allLaunches = document.querySelector('.all-launches-container');
+          allLaunches.textContent = '';
+          data.forEach((e) => {
+            if(e.date_local.includes(wantedYear)) {
+              allLaunches.appendChild(cardsRender(e));
+            }
+          })
+        })
+       });
+
+      //  Return all launches
+      const allBtn = document.querySelector('.all-btn');
+      allBtn.addEventListener('click', () => {
+        allLaunches.textContent = '';
+        data.forEach((item) => {
+          allLaunches.appendChild(cardsRender(item));
+        })
+      })
+})
+.catch(err => console.log('error', err));
+
+// buttons function
+function btnRender (incomingData) {
+  const btn = document.createElement('button');
+  btn.textContent = incomingData.date_local.slice(0, 4);
+  return btn;
+};
+// cards function
+function cardsRender(incomingData) {
+  const card = document.createElement("div");
+  card.setAttribute('class', 'trips-card'); 
+  // ** Start creation of an images div
+  const tripImgDiv = document.createElement('div');
+  const tripImg = document.createElement('img');
+  tripImg.setAttribute('src', `${incomingData.links.patch.small}`);
+  tripImg.setAttribute('alt', `${incomingData.name}`);
+  tripImg.setAttribute('referrerpolicy', 'no-referrer')
+  tripImgDiv.setAttribute('class', 'trip-img');
+  tripImgDiv.setAttribute('class', 'trip-img');
+  tripImgDiv.appendChild(tripImg)
+  card.appendChild(tripImgDiv)
+  // !! End creation of an images div
+
+  // ** Start creation of an trip information div
+
+    const tripInformationDiv = document.createElement('div');
+    tripInformationDiv.setAttribute('class', 'trip-information');
+
+    // ** start creation of heading title
+    const headingTitle = document.createElement('h1');
+    headingTitle.textContent = `${incomingData.name}`;
+    headingTitle.setAttribute('class', 'trip-title');
+    card.appendChild(tripInformationDiv)
+    
+
+    // ** start creation of trip date div
+      const tripDateDiv = document.createElement('div');
+      tripDateDiv.setAttribute('class', 'trip-date');
+      tripDateDiv.appendChild(headingTitle)
+      const clockIcon = document.createElement('i');
+      clockIcon.classList.add('fa-regular', 'fa-clock');
+      const datePara = document.createElement('p');
+      
+      datePara.textContent = `${incomingData.date_local.slice(0, 10)}`;
+
+      tripDateDiv.appendChild(clockIcon);
+      tripDateDiv.appendChild(datePara);
+      tripInformationDiv.appendChild(tripDateDiv)
+
+    // !! End creation of trip date div
+
+    // ** start creation of trip description div
+    
+    const tripDescriptionDiv = document.createElement('div');
+    tripDescriptionDiv.setAttribute('class', 'trip-description')
+    const descriptionPara = document.createElement('p');
+    descriptionPara.textContent = `${incomingData.details}`;
+    tripDescriptionDiv.appendChild(descriptionPara);
+    tripInformationDiv.appendChild(tripDescriptionDiv);
+    
+    // !! End creation of trip description div
+
+      // ** start creation of trip buttons div
+        
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.setAttribute('class', 'trip-btns');
+
+        // ?? create youtube button
+        const youtubeBtn = document.createElement('a');
+        youtubeBtn.textContent = 'youtube';
+        youtubeBtn.setAttribute('class', 'youtube-btn');
+        youtubeBtn.setAttribute('href', `${incomingData.links.webcast}`);
+        youtubeBtn.setAttribute('target', '_blank');
+        // ?? create read more button
+        const readMoreBtn = document.createElement('a');
+        readMoreBtn.textContent = 'read more ';
+        readMoreBtn.setAttribute('class', 'more');
+        readMoreBtn.setAttribute('href', `${incomingData.links.article}`);
+        readMoreBtn.setAttribute('target', '_blank');
+
+        const rightArrowIcon = document.createElement('i');
+        rightArrowIcon.classList.add('fa-solid', 'fa-chevron-right');
+        readMoreBtn.appendChild(rightArrowIcon);
+        buttonsDiv.appendChild(youtubeBtn);
+        buttonsDiv.appendChild(readMoreBtn);
+        tripInformationDiv.appendChild(buttonsDiv)
+      
+      // !! End creation of trip buttons div
+      
+      // ** Start creation of heart icon div
+        const heartDiv = document.createElement('div');
+        heartDiv.setAttribute('class', 'heart')
+        const heartIcon = document.createElement('i');
+        heartIcon.classList.add('fa-regular', 'fa-heart');
+        heartDiv.appendChild(heartIcon);
+        tripInformationDiv.appendChild(heartDiv)
+      // !! End creation of heart icon div
+
+    // ** End creation of trip date div
+  
+  // !! End creation of an trip information div
+  return card;
+};
+
+// functionality for scroll bar on mouse event
+
+const slider = document.querySelector('.slider');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = x - startX;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// functionality for scroll bar on button click
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+leftArrow.addEventListener('click', (e) => {
+  console.log('clicked')
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+})
+
+rightArrow.addEventListener('click', (e) => {
+  console.log('clicked')
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+})
