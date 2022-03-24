@@ -1,198 +1,298 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-  }
-  body {
-    background-image: url(../images/background.jpg);
-  }
-  
-  @font-face {
-    font-family: "Space Quest";
-    src: url("../CSS/font/SpaceQuest-Xj4o.ttf");
-  }
-  
-  /* out container */
-  .container {
-    width: 100%;
-  }
-  
-  /* header */
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background-image: url(../images/background.jpg);
+}
+
+@font-face {
+  font-family: "Space Quest";
+  src: url("../CSS/font/SpaceQuest-Xj4o.ttf");
+}
+
+/* out container */
+.container {
+  width: 100%;
+}
+
+/* header */
+
+.header {
+  background-color: #385768;
+  box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 10%);
+  position: fixed;
+  top: 0;
+  width: 90%;
+  z-index: 3;
+  margin-top: 2rem;
+  margin-left: 1.4rem;
+  border-radius: 2rem;
+  font-family: "Space Quest";
+}
+
+a {
+  color: white;
+}
+
+nav {
+  border-radius: 2rem;
+  background: #385768;
+  width: 100%;
+}
+
+.header ul {
+  list-style: none;
+  overflow: hidden;
+  background-color: #385768;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Space Quest";
+  width: 40%;
+  margin: 0 auto;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  color: #13c0c4;
+  text-decoration: none;
+  border-bottom: 4px solid #13c0c4;
+  padding-bottom: 0.6rem;
+}
+
+.header li a.active {
+  color: #13c0c4;
+  border-bottom: 4px solid #13c0c4;
+  padding-bottom: 0.6rem;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  border-radius: 2rem;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #fff;
+  display: block;
+  height: 3px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 22px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #fff;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+@media (min-width: 48em) {
   .header {
-    background-color: #385768;
-    box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 10%);
-    position: fixed;
-    top: 0;
-    width: 90%;
-    z-index: 3;
-    margin-top: 2rem;
-    margin-left: 1.4rem;
-    border-radius: 2rem;
-    font-family: "Space Quest";
+    margin-left: 2rem;
   }
-  
-  a {
-    color: white;
-  }
-  
-  nav {
-    border-radius: 2rem;
-    background: #385768;
-    width: 100%;
-  }
-  
-  .header ul {
-    list-style: none;
-    overflow: hidden;
-    background-color: #385768;
-  }
-  
-  .header li a {
-    display: block;
-    padding: 20px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-family: "Space Quest";
-    width: 40%;
-    margin: 0 auto;
-  }
-  
-  .header li a:hover,
-  .header .menu-btn:hover {
-    color: #13c0c4;
-    text-decoration: none;
-    border-bottom: 4px solid #13c0c4;
-    padding-bottom: 0.6rem;
-  }
-  
-  .header li a.active {
-    color: #13c0c4;
-    border-bottom: 4px solid #13c0c4;
-    padding-bottom: 0.6rem;
-  }
-  
-  .header .logo {
-    display: block;
+  .header li {
     float: left;
-    padding: 10px 20px;
-    text-decoration: none;
   }
-  
-  /* menu */
-  
+  .header li a {
+    padding: 20px 30px;
+  }
   .header .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-    border-radius: 2rem;
-  }
-  
-  /* menu icon */
-  
-  .header .menu-icon {
-    cursor: pointer;
+    clear: none;
     float: right;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
+    max-height: none;
   }
-  
-  .header .menu-icon .navicon {
-    background: #fff;
-    display: block;
-    height: 3px;
-    position: relative;
-    transition: background 0.2s ease-out;
-    width: 22px;
-  }
-  
-  .header .menu-icon .navicon:before,
-  .header .menu-icon .navicon:after {
-    background: #fff;
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
-  }
-  
-  .header .menu-icon .navicon:before {
-    top: 5px;
-  }
-  
-  .header .menu-icon .navicon:after {
-    top: -5px;
-  }
-  
-  /* menu btn */
-  
-  .header .menu-btn {
+  .header .menu-icon {
     display: none;
   }
-  
-  .header .menu-btn:checked ~ .menu {
-    max-height: 240px;
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
-  }
-  
-  @media (min-width: 48em) {
-    .header {
-      margin-left: 2rem;
-    }
-    .header li {
-      float: left;
-    }
-    .header li a {
-      padding: 20px 30px;
-    }
-    .header .menu {
-      clear: none;
-      float: right;
-      max-height: none;
-    }
-    .header .menu-icon {
-      display: none;
-    }
-  }
-  
-  /* =================================================== */
-  
-  /* content in the page */
-  .content {
+}
+
+/* =================================================== */
+
+/* content in the page */
+.content {
+  width: 100%;
+  margin: 0 auto;
+  /* margin-top: 7rem;*/
+  color: white;
+}
+
+@media (min-width: 48em) {
+  .header li a {
     width: 100%;
-    margin: 0 auto;
-    /* margin-top: 7rem;*/
-    color: white;
   }
-  
-  @media (min-width: 48em) {
-    .header li a {
-      width: 100%;
-    }
-    .header {
-      margin-left: 4rem;
-    }
+  .header {
+    margin-left: 4rem;
   }
-  
+}
 
+/* welcome section css */
 
-  
+.content {
+  width: 100%;
+  margin: 0 auto;
+  /* margin-top: 7rem;*/
+  color: white;
+}
+
+@media (min-width: 48em) {
+  .header li a {
+    width: 100%;
+  }
+  .header {
+    margin-left: 4rem;
+  }
+
+  /* media welcome seciton */
+  /* .welcome-nasa-text-h1{
+      font-size: 1.5rem;
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+    } */
+}
+
+/* start sty;e css for conten nasa page*/
+.welcome-nasa {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* padding-top: 10rem;
+    padding-bottom: 10rem; */
+  width: 100%;
+}
+.welcome-nasa::before {
+  content: "";
+  background-image: url("../images/planets.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.2;
+}
+
+.welcome-nasa-text {
+  width: 80%;
+
+  text-align: center;
+
+  margin: 0 auto;
+}
+.nasa-gallery {
+  width: 80%;
+
+  text-align: center;
+
+  margin: 0 auto;
+}
+.welcome-nasa-text-h1,
+.nasa-gallery h1 {
+  font-family: "Space Quest";
+  color: #13c0c4;
+  font-size: 3rem;
+  letter-spacing: 0.18rem;
+  margin-bottom: 2rem;
+}
+.welcome-nasa-text p {
+  color: white;
+  margin: 0 auto;
+  letter-spacing: 0.12rem;
+  width: 80%;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+@media (min-width: 375px) and (max-width: 667px) {
+  .welcome-nasa-text-h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .welcome-nasa {
+    height: 80vh;
+    /* padding-top: 10rem;
+      padding-bottom: 10rem; */
+    width: 100%;
+  }
+  .welcome-nasa-text p {
+    letter-spacing: 0rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.2rem;
+  }
+}
+
+/* end welcome */
