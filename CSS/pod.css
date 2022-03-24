@@ -324,18 +324,6 @@ nav {
   text-align: center;
 }
 
-.input-date {
-  border: 2px solid #353535;
-  display: flex;
-  align-items: center;
-  width: 50%;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  margin: 1.5rem auto;
-  background-color: #353535;
-  justify-content: space-between;
-}
-
 .date-pic-btn {
   width: 8rem;
   height: 2rem;
@@ -393,7 +381,6 @@ nav {
   }
 }
 
-
 /* end pic date */
 /* start cards nasa */
 .nasa-gallery h1 {
@@ -402,9 +389,8 @@ nav {
   font-size: 2.3rem;
   letter-spacing: 0.15rem;
   padding-top: 3.5rem;
-  
 }
-.first-p  {
+.first-p {
   color: white;
   margin: 0 auto;
   letter-spacing: 0.1rem;
@@ -413,12 +399,11 @@ nav {
   font-weight: 600;
 }
 
-.input-date{
-
+.input-date {
   border: 2px solid #353535;
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 70%;
   padding: 1rem 2rem;
   border-radius: 1rem;
   margin: 1.5rem auto;
@@ -427,83 +412,82 @@ nav {
 
 }
 
-  .home-page-btn {
-    width: 8rem;
-    height: 2rem;
-    color: white;
-    background-color: #13c0c4;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    
-  }
+.home-page-btn {
+  width: 8rem;
+  height: 2rem;
+  color: white;
+  background-color: #13c0c4;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-.input-date input{
+.input-date input {
   background: #9e9e9e;
   border: none;
   text-align: center;
   font-size: 1rem;
-  width: 42%;
+  width: 90%;
   height: 2rem;
   border-radius: 0.5rem;
   color: white;
+  margin-top: 0.5rem;
 }
-.fa-solid{
 
-  color:#13c0c4 ;
+.fa-solid {
+  color: #13c0c4;
   font-size: 20px;
 }
 
 @media (min-width: 48em) {
- 
+    .input-date {
+      width: 50%;
+
+    }
+    .input-date input {
+      width: 80%;
+      margin-top: 0;
+      margin-right: 1rem;
+    }
 
 }
 @media (min-width: 375px) and (max-width: 667px) {
-  .card{
+  .card {
     display: flex;
     flex-direction: column;
-    
-    
-  
-    
-     padding: 1rem;
-    
+
+    padding: 1rem;
   }
-  .card-img{
-   
-    
-   
+  .card-img {
     width: 100%;
     height: 290px;
     border: 10px solid #686868;
     border-radius: 20px;
   }
 }
-.cards-nasa
-{
+.cards-nasa {
   padding: 0;
   display: flex;
 
- flex-direction: column;
- width: 80%;
- margin: 0 auto;
-
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
 }
-.card{
+.card {
   display: flex;
   background: #353535;
   padding: 1rem;
 
   margin-bottom: 1rem;
-   border-radius: 20px;
-   padding: 2rem;
-    align-items: center;
+  border-radius: 20px;
+  padding: 2rem;
+  align-items: center;
 }
-.card-img{
+.card-img {
   background: #686868;
-  
+
   border-radius: 20px;
   width: 260px;
   height: 290px;
@@ -511,35 +495,107 @@ nav {
   border-radius: 20px;
 }
 .card-img img {
-  width: 220Px;
-border-image: fill;
+  width: 220px;
+  border-image: fill;
   height: 250px;
-  
-  
 }
 
-
-.card-text{
-
-  
+.card-text {
   padding-top: 0.5rem;
   margin-left: 2rem;
-
 }
-.card-text-p{
+.card-text-p {
   padding-bottom: 1rem;
   text-justify: auto;
   line-height: 1.4rem;
-  
 }
-.card-text-h2{
+.card-text-h2 {
   padding-bottom: 1rem;
   color: #13c0c4;
-
 }
-.card-text-h4{
+.card-text-h4 {
   padding-bottom: 1rem;
-
 }
 
 /*  End cards nasa */
+
+
+/* sponser and footer */
+.sponsor-img {
+  width: 11rem;
+}
+
+.sponsors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 10rem;
+}
+
+.sponsor {
+  margin: 0.2rem;
+  background-color: #353535bd;
+  border-radius: 20px;
+}
+
+.footer {
+  background-color: #353535a1;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 10rem;
+}
+
+.footer-text {
+  padding-top: 2rem;
+  color: #979797;
+}
+.flex-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  width: 40%;
+  font-size: 1.4rem;
+}
+.footer-image2 {
+  width: 8.5rem;
+}
+.footer-image1 {
+  width: 7.5rem;
+}
+.footer-list a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #b3b3b3;
+}
+
+@media (min-width: 48em) {
+  .footer-image1 {
+    width: 13.2rem;
+  }
+  .footer-image2 {
+    width: 14rem;
+  }
+  .footer-list {
+    width: 30%;
+    font-size: 3rem;
+  }
+}
