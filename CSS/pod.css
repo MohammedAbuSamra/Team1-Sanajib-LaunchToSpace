@@ -457,3 +457,61 @@ nav {
 .card-text h4 {
   padding-bottom: 1rem;
 }
+
+.footer {
+  background-color: #353535a1;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 10rem;
+}
+
+.footer-text {
+  padding-top: 2rem;
+  color: #979797;
+}
+.flex-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  width: 40%;
+  font-size: 1.9rem;
+}
+.footer-image2 {
+  width: 8.5rem;
+}
+.footer-image1 {
+  width: 7.5rem;
+}
+.footer-list a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #b3b3b3;
+}
+
+@media (min-width: 48em) {
+  .footer-image1 {
+    width: 13.2rem;
+  }
+  .footer-image2 {
+    width: 14rem;
+  }
+  .footer-list {
+    width: 30%;
+    font-size: 2rem;
+  }
+}
+/*End footer*/
