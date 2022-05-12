@@ -158,7 +158,7 @@ fetch("https://api.spacexdata.com/v4/launches/")
 
     // !! favorite functionality
     const heart = document.querySelectorAll(".heart-icon");
-
+    const favoriteLaunchesArr = [];
     heart.forEach((item) => {
       item.addEventListener("click", (elem) => {
         elem.target.classList.toggle("fa-solid");
@@ -166,25 +166,45 @@ fetch("https://api.spacexdata.com/v4/launches/")
           elem.target.parentNode.parentNode.childNodes[0].childNodes[0]
             .textContent;
 
-        const launchDate =
-          elem.target.parentNode.parentNode.childNodes[0].childNodes[2]
-            .textContent;
-        // localStorage.setItem(
-        //   "obj",
-        //   JSON.stringify([
-        //     {
-        //       launchName :launchDate
+        //**  check if the user click on heart button or not
+        if (item.classList.contains("fa-solid")) {
+          
+          // check if an array contains the launch or not
+          let check = favoriteLaunchesArr.includes(launchName);
 
-        //     },
-        //   ])
-        // );
-        localStorage.setItem("obj", [
-          ...(localStorage.getItem("obj")) ||
-            JSON.stringify({ launchName: launchDate }),
-          JSON.stringify({ launchName: launchDate }),
-        ]);
+          if(!check) {
+            favoriteLaunchesArr.push(launchName);
+          }
+          
+        }else {
+          favoriteLaunchesArr.forEach((elem, i,arr) => {
+            
+            if(elem === launchName) {
+              
+              arr.splice(i, 1);
+            }
+          })
+          
+        }
+        localStorage.setItem('favorites', JSON.stringify(favoriteLaunchesArr));
+
       });
     });
+     // ** add the functionality to the favorite button
+     const favoriteBtn = document.querySelector('.favorite-btn');
+     favoriteBtn.addEventListener('click', () => {
+      allLaunches.textContent = "";
+       const favoriteArr = JSON.parse(localStorage.getItem('favorites'));
+       favoriteArr.forEach(lanName => {
+         data.forEach((item) => {
+           if (lanName === item.name) {
+            
+            allLaunches.appendChild(cardsRender(item));
+            console.log(item.name)
+           }
+         })
+       })
+     })
   })
   .catch((err) => console.log("error", err));
 
