@@ -156,42 +156,67 @@ fetch("https://api.spacexdata.com/v4/launches/")
       });
     });
 
-    // !! favorite functionality
-    const heart = document.querySelectorAll(".heart-icon");
-    const favoriteLaunchesArr = [];
-    heart.forEach((item) => {
-      item.addEventListener("click", (elem) => {
-        elem.target.classList.toggle("fa-solid");
+    // ** add the functionality to the favorite button
+    const favoriteLunchesArr = [];
+    const allBtnsForChangeCards = document.querySelectorAll(".btn");
+
+    allBtnsForChangeCards.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const tripsCards = document.querySelectorAll(".trips-card");
+        tripsCards.forEach((item) => {
+          item.addEventListener("click", (e) => {
+            e.target.classList.toggle("fa-solid");
+            const launchName =
+              e.target.parentNode.parentNode.childNodes[0].childNodes[0]
+                .textContent;
+            e.target.classList.contains("fa-solid")
+              ? favoriteLunchesArr.push(launchName)
+              : favoriteLunchesArr.splice(
+                  favoriteLunchesArr.indexOf(launchName),
+                  1
+                );
+            localStorage.setItem(
+              "favorites",
+              JSON.stringify(favoriteLunchesArr)
+            );
+          });
+        });
+      });
+    });
+    const heartBtn = document.querySelectorAll(".heart-icon");
+    heartBtn.forEach((e) =>
+      e.addEventListener("click", (e) => {
+        e.target.classList.toggle("fa-solid");
         const launchName =
-          elem.target.parentNode.parentNode.childNodes[0].childNodes[0]
+          e.target.parentNode.parentNode.childNodes[0].childNodes[0]
             .textContent;
+        e.target.classList.contains("fa-solid")
+          ? favoriteLunchesArr.push(launchName)
+          : favoriteLunchesArr.splice(
+              favoriteLunchesArr.indexOf(launchName),
+              1
+            );
+        localStorage.setItem("favorites", JSON.stringify(favoriteLunchesArr));
+      })
+    );
 
-        //**  check if the user click on heart button or not
-        if (item.classList.contains("fa-solid")) {
-          
-          // check if an array contains the launch or not
-          let check = favoriteLaunchesArr.includes(launchName);
-
-          if(!check) {
-            favoriteLaunchesArr.push(launchName);
+    let favoriteBtn = document.querySelector(".favorite-btn");
+    favoriteBtn.addEventListener("click", () => {
+      allLaunches.textContent = "";
+      const favoriteArr = JSON.parse(localStorage.getItem("favorites"));
+      favoriteArr.forEach((lanName) => {
+        data.forEach((item) => {
+          if (lanName === item.name) {
+            allLaunches.appendChild(cardsRender(item));
           }
-          
-        }else {
-          favoriteLaunchesArr.forEach((elem, i,arr) => {
-            
-            if(elem === launchName) {
-              
-              arr.splice(i, 1);
-            }
-          })
-          
-        }
-        localStorage.setItem('favorites', JSON.stringify(favoriteLaunchesArr));
-
+        });
+      });
+      const heartBtn = document.querySelectorAll(".heart-icon");
+      heartBtn.forEach((e) => {
+        e.classList.add("fa-solid");
       });
     });
      // ** add the functionality to the favorite button
-     const favoriteBtn = document.querySelector('.favorite-btn');
      favoriteBtn.addEventListener('click', () => {
       allLaunches.textContent = "";
        const favoriteArr = JSON.parse(localStorage.getItem('favorites'));
@@ -211,6 +236,7 @@ fetch("https://api.spacexdata.com/v4/launches/")
 // buttons function
 function btnRender(incomingData) {
   const btn = document.createElement("button");
+  btn.setAttribute("class", "btn");
   btn.textContent = incomingData.date_local.slice(0, 4);
   return btn;
 }
