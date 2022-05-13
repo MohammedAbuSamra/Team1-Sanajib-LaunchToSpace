@@ -78,7 +78,7 @@
 2. CSS - To give the pages style.
 3. Responsive web design - To make the website suitable for all devices.
 4. JavaScript - To add functionality to the website.
-5. LocalStorage - To save some data.
+5. LocalStorage - To save some data
 
 ---
 
