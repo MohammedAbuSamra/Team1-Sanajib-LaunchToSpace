@@ -200,7 +200,7 @@ fetch("https://api.spacexdata.com/v4/launches/")
       })
     );
 
-    const favoriteBtn = document.querySelector(".favorite-btn");
+    let favoriteBtn = document.querySelector(".favorite-btn");
     favoriteBtn.addEventListener("click", () => {
       allLaunches.textContent = "";
       const favoriteArr = JSON.parse(localStorage.getItem("favorites"));
@@ -216,6 +216,20 @@ fetch("https://api.spacexdata.com/v4/launches/")
         e.classList.add("fa-solid");
       });
     });
+     // ** add the functionality to the favorite button
+     favoriteBtn.addEventListener('click', () => {
+      allLaunches.textContent = "";
+       const favoriteArr = JSON.parse(localStorage.getItem('favorites'));
+       favoriteArr.forEach(lanName => {
+         data.forEach((item) => {
+           if (lanName === item.name) {
+            
+            allLaunches.appendChild(cardsRender(item));
+            console.log(item.name)
+           }
+         })
+       })
+     })
   })
   .catch((err) => console.log("error", err));
 
