@@ -421,7 +421,7 @@ nav {
 
 @media screen and (min-width: 1440px) {
   html {
-    font-size: 17px;
+    font-size: 15px;
   }
   /* ---- Beginning of latest launch section ---- */
   .latest-launch .latest-launch-img img {
@@ -519,7 +519,7 @@ nav {
   color: #fff;
   outline: none;
   cursor: pointer;
-  padding: .2rem 2rem;
+  padding: 0.2rem 2rem;
   border-radius: 0.5rem;
   font-weight: bold;
   margin: 0.5rem 1rem;
@@ -582,7 +582,6 @@ nav {
 }
 
 .trip-img {
-  flex: 1 1 200px;
   display: flex;
   justify-content: center;
   background-color: rgba(250, 245, 245, 0.3);
@@ -629,7 +628,7 @@ nav {
   color: #fff;
 }
 
-.trip-date p{
+.trip-date p {
   position: relative;
   left: 2rem;
   top: -1.25rem;
@@ -718,14 +717,16 @@ nav {
   .years-range button {
     min-width: 10rem;
   }
+  .trip-img {
+    width: 20%;
+  }
 }
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
   .trip-date {
     margin-bottom: -2rem;
   }
-
-  .trip-description {
-    margin: -1.8rem 1rem 0 0;
+  .trip-img {
+    width: 20%;
   }
 }
 
@@ -733,35 +734,12 @@ nav {
   .trip-date {
     margin-bottom: -2rem;
   }
-
-  .trip-description {
-    margin: -1.8rem 1rem 0 0;
+  .trip-img {
+    width: 20%;
   }
 }
 
-
-/* sponser and footer */
-.sponsor-img {
-  width: 11rem;
-}
-
-.sponsors {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 10rem;
-}
-
-.sponsor {
-  margin: 0.2rem;
-  background-color: #353535bd;
-  border-radius: 20px;
-}
+/*  footer */
 
 .footer {
   background-color: #353535a1;
