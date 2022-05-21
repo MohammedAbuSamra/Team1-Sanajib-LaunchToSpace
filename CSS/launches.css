@@ -582,14 +582,12 @@ nav {
 }
 
 .trip-img {
-  /* flex: 1 1 200px; */
   display: flex;
   justify-content: center;
   background-color: rgba(250, 245, 245, 0.3);
   margin: 1rem;
   border-radius: 0.5rem;
   padding: 1rem;
-  width: 20%;
 }
 
 .trip-img img {
@@ -724,11 +722,17 @@ nav {
   .trip-date {
     margin-bottom: -2rem;
   }
+  .trip-img {
+    width: 20%;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .trip-date {
     margin-bottom: -2rem;
+  }
+  .trip-img {
+    width: 20%;
   }
 }
 
